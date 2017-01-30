@@ -17,6 +17,9 @@ function initMap() {
         {title: "Plaza de Los Artesanos", position: {lat: -34.962919, lng: -54.943766}}
     ];
 
+    // Define bounds object
+    var bounds = new google.maps.LatLngBounds();
+
     // Create markers
     locations.forEach(function (location, index) {
         var marker = new google.maps.Marker({
@@ -27,12 +30,15 @@ function initMap() {
             id: index
         });
 
+        bounds.extend(marker.position);
         markers.push(marker);
-
         marker.addListener('click', function () {
             populateInfoWindow(this, largeInfoWindow);
         });
     });
+
+    // Extend map bounds
+    map.fitBounds(bounds);
 
     // Create info window
     var largeInfoWindow = new google.maps.InfoWindow();
