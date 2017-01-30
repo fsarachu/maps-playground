@@ -34,4 +34,20 @@ function initMap() {
         });
     });
 
+    // Create info window
+    var largeInfoWindow = new google.maps.InfoWindow();
+
+    function populateInfoWindow(marker, infoWindow) {
+        // Check if infoWindow is not already opened in this marker
+        if (infoWindow.marker != marker) {
+            infoWindow.marker = marker;
+            infoWindow.setContent('<div>' + marker.title + '</div>');
+            infoWindow.open(map, marker);
+            // Clear property after infoWindow is closed
+            infoWindow.addListener('closeclick', function () {
+                infoWindow.marker = null;
+            });
+        }
+    }
+
 }
