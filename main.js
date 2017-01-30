@@ -19,7 +19,7 @@ function initMap() {
     });
 
     // Add an info window
-    var infoWindow = new google.maps.infoWindow({
+    var infoWindow = new google.maps.InfoWindow({
         content: "Here is Punta del Este! My overrated city!"
     });
 }
