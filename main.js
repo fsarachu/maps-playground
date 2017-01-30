@@ -17,4 +17,9 @@ function initMap() {
         map: map,
         title: "Punta del Este"
     });
+
+    // Add an info window
+    var infoWindow = new google.maps.infoWindow({
+        content: "Here is Punta del Este! My overrated city!"
+    });
 }
