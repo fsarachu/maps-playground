@@ -1,4 +1,5 @@
 var map;
+var markers = [];
 
 function initMap() {
     // Create a map object and specify the DOM element for display.
@@ -17,8 +18,6 @@ function initMap() {
     ];
 
     // Create markers
-    var markers = [];
-
     locations.forEach(function (location, index) {
         var marker = new google.maps.Marker({
             map: map,
