@@ -17,4 +17,23 @@ function initMap() {
         {title: "Plaza de Los Artesanos", position: {lat: -34.962919, lng: -54.943766}}
     ];
 
+    // Create markers
+    var markers = [];
+
+    locations.forEach(function (location, index) {
+        var marker = new google.maps.Marker({
+            map: map,
+            position: location.position,
+            title: location.title,
+            animation: google.maps.Animation.DROP,
+            id: index
+        });
+
+        markers.push(marker);
+
+        marker.addListener('click', function () {
+            populateInfoWindow(this, largeInfoWindow);
+        });
+    });
+
 }
