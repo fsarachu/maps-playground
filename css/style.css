@@ -1,10 +1,45 @@
 html, body {
-    margin: 0;
-    padding: 0;
     height: 100%;
 }
 
 #map {
-    width: 100%;
+    margin-left: 50px;
+    width: calc(100% - 50px);
     height: 100%;
+}
+
+#side-menu {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 350px;
+    height: 100%;
+    z-index: 1000;
+    background-color: #FFFFFF;
+    /*border-right: 5px solid #eea236;*/
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transition: .3s ease-in-out;
+}
+
+#side-menu.closed {
+    left: -300px;
+}
+
+.menu-content, .menu-toggle {
+    height: 100%;
+}
+
+.menu-content {
+    position: absolute;
+    left: 0;
+    width: 300px;
+}
+
+.menu-toggle {
+    position: absolute;
+    right: 0;
+    width: 50px;
+    border-left: 1px solid #cbcbcb;
 }
