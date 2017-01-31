@@ -63,8 +63,8 @@ function initMap() {
         map.fitBounds(bounds);
     }
 
-    function hideMarkers() {
-        markers.forEach(function (marker) {
+    function hideMarkers(visibleMarkers) {
+        visibleMarkers.forEach(function (marker) {
             marker.setMap(null);
         });
     }
