@@ -33,39 +33,36 @@ function initMap() {
         });
     });
 
-    // Extend map bounds
-    map.fitBounds(bounds);
-
     // Create info window
     var largeInfoWindow = new google.maps.InfoWindow();
+}
 
-    function populateInfoWindow(marker, infoWindow) {
-        // Check if infoWindow is not already opened in this marker
-        if (infoWindow.marker != marker) {
-            infoWindow.marker = marker;
-            infoWindow.setContent('<div>' + marker.title + '</div>');
-            infoWindow.open(map, marker);
-            // Clear property after infoWindow is closed
-            infoWindow.addListener('closeclick', function () {
-                infoWindow.marker = null;
-            });
-        }
-    }
-
-    function showMarkers() {
-        var bounds = new google.maps.LatLngBounds();
-
-        markers.forEach(function (marker) {
-            marker.setMap(map);
-            bounds.extend(marker.position);
-        });
-
-        map.fitBounds(bounds);
-    }
-
-    function hideMarkers(visibleMarkers) {
-        visibleMarkers.forEach(function (marker) {
-            marker.setMap(null);
+function populateInfoWindow(marker, infoWindow) {
+    // Check if infoWindow is not already opened in this marker
+    if (infoWindow.marker != marker) {
+        infoWindow.marker = marker;
+        infoWindow.setContent('<div>' + marker.title + '</div>');
+        infoWindow.open(map, marker);
+        // Clear property after infoWindow is closed
+        infoWindow.addListener('closeclick', function () {
+            infoWindow.marker = null;
         });
     }
+}
+
+function showMarkers() {
+    var bounds = new google.maps.LatLngBounds();
+
+    markers.forEach(function (marker) {
+        marker.setMap(map);
+        bounds.extend(marker.position);
+    });
+
+    map.fitBounds(bounds);
+}
+
+function hideMarkers(visibleMarkers) {
+    visibleMarkers.forEach(function (marker) {
+        marker.setMap(null);
+    });
 }
