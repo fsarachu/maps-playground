@@ -20,7 +20,7 @@ function initMap() {
     // Create markers
     locations.forEach(function (location, index) {
         var marker = new google.maps.Marker({
-            map: map,
+            map: null,
             position: location.position,
             title: location.title,
             animation: google.maps.Animation.DROP,
@@ -32,6 +32,8 @@ function initMap() {
             populateInfoWindow(this, largeInfoWindow);
         });
     });
+
+    showMarkers();
 
     // Create info window
     var largeInfoWindow = new google.maps.InfoWindow();
