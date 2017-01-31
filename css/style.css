@@ -34,6 +34,9 @@ html, body {
     position: absolute;
     left: 0;
     width: 300px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    overflow-y: auto;
 }
 
 .menu-toggle {
