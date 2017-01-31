@@ -18,8 +18,7 @@ html, body {
     height: 100%;
     z-index: 1000;
     background-color: #FFFFFF;
-    /*border-right: 5px solid #eea236;*/
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 3px 0px 6px 0px rgba(0, 0, 0, 0.16);
     transition: .3s ease-in-out;
 }
 
@@ -41,5 +40,22 @@ html, body {
     position: absolute;
     right: 0;
     width: 50px;
-    border-left: 1px solid #cbcbcb;
+    background: #f1f1f1;
+    box-shadow: inset 1px 0px 6px 0px rgba(0, 0, 0, 0.16);
+}
+
+.menu-toggle .fa {
+    position: absolute;
+    top: calc(50% - 15px);
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 30px;
+    color: #888888;
+}
+
+.menu-toggle .fa-chevron-right::before, .menu-toggle .fa-chevron-left::before {
+    /*font-size: 30px;*/
+    /*color: #888888;*/
 }
