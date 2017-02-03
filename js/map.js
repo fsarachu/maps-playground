@@ -563,7 +563,7 @@ function initMap() {
         drawingMode: google.maps.drawing.POLYGON,
         drawingControl: true,
         drawingControlOptions: {
-            position: google.maps.controlPosition.TOP_LEFT,
+            position: google.maps.ControlPosition.TOP_RIGHT,
             drawingModes: [google.maps.drawing.OverlayType.POLYGON]
         }
     });
