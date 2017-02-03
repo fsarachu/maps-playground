@@ -18,12 +18,12 @@ $(function () {
     var $toggleDrawingButton = $("#toggle-drawing");
 
     $toggleDrawingButton.on("click", function () {
+        toggleDrawing(drawingManager);
+
         if (drawingManager.map) {
-            drawingManager.setMap(null);
-            $toggleDrawingButton.text("Start Drawing");
-        } else {
-            drawingManager.setMap(map);
             $toggleDrawingButton.text("Stop Drawing");
+        } else {
+            $toggleDrawingButton.text("Start Drawing");
         }
     });
 });
