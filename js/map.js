@@ -520,7 +520,8 @@ function initMap() {
         mapTypeControlOptions: {
             mapTypeIds: ["dark", "purple", "roadmap"]
         },
-        mapTypeId: "dark"
+        mapTypeId: "dark",
+        streetViewControl: false
     });
 
     //Associate the styled map with the MapTypeId.
