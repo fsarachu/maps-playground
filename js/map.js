@@ -509,13 +509,24 @@ var purpleStyle = [
 ];
 
 function initMap() {
+    // Create Styled Map Type
+    var darkStyledMapType = new google.maps.StyledMapType(darkStyle, {name: "Dark"});
+    var purpleStyledMapType = new google.maps.StyledMapType(purpleStyle, {name: "Purple"});
+
     // Create a map object and specify the DOM element for display.
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: -34.9512849, lng: -54.9452626},
         zoom: 13,
-        styles: darkStyle,
-        mapTypeControl: false
+        mapTypeControlOptions: {
+            mapTypeIds: ["dark", "purple", "roadmap"]
+        }
     });
+
+    //Associate the styled map with the MapTypeId and set it to display.
+    map.mapTypes.set("dark", darkStyledMapType);
+    map.setMapTypeId('dark');
+    map.mapTypes.set("purple", purpleStyledMapType);
+    map.setMapTypeId('purple');
 
     // Define locations
     var locations = [
