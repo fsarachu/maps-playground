@@ -14,4 +14,10 @@ $(function () {
             $toggleMarkersButton.text("Hide Markers");
         }
     });
+
+    var $toggleDrawingButton = $("#toggle-drawing");
+
+    $toggleDrawingButton.on("click", function () {
+
+    });
 });
