@@ -557,6 +557,16 @@ function initMap() {
 
     // Create info window
     var largeInfoWindow = new google.maps.InfoWindow();
+
+    // Initialize drawing library
+    var drawingManager = new google.maps.drawing.DrawingManager({
+        drawingMode: google.maps.drawing.POLYGON,
+        drawingControl: true,
+        drawingControlOptions: {
+            position: google.maps.controlPosition.TOP_LEFT,
+            drawingModes: [google.maps.drawing.OverlayType.POLYGON]
+        }
+    });
 }
 
 function populateInfoWindow(marker, infoWindow) {
