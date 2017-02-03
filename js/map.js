@@ -1,4 +1,4 @@
-var map, drawingManager;
+var map, drawingManager, polygon;
 var markers = [];
 
 // Map Styles
@@ -567,6 +567,30 @@ function initMap() {
             drawingModes: [google.maps.drawing.OverlayType.POLYGON]
         }
     });
+
+    // Add an event listener so that the polygon is captured,  call the
+    // searchWithinPolygon function. This will show the markers in the polygon,
+    // and hide any outside of it.
+    drawingManager.addListener('overlaycomplete', function (event) {
+        // First, check if there is an existing polygon.
+        // If there is, get rid of it and remove the markers
+        if (polygon) {
+            polygon.setMap(null);
+            hideMarkers(markers);
+        }
+        // Switching the drawing mode to the HAND (i.e., no longer drawing).
+        drawingManager.setDrawingMode(null);
+        // Creating a new editable polygon from the overlay.
+        polygon = event.overlay;
+        polygon.setEditable(true);
+        // Searching within the polygon.
+        searchWithinPolygon();
+        // Make sure the search is re-done if the poly is changed.
+        polygon.getPath().addListener('set_at', searchWithinPolygon);
+        polygon.getPath().addListener('insert_at', searchWithinPolygon);
+    });
+
+
 }
 
 function populateInfoWindow(marker, infoWindow) {
@@ -624,5 +648,26 @@ function showMarkers() {
 function hideMarkers(visibleMarkers) {
     visibleMarkers.forEach(function (marker) {
         marker.setMap(null);
+    });
+}
+
+function toggleDrawing(drawingManager) {
+    if (drawingManager.map) {
+        drawingManager.setMap(null);
+    } else {
+        drawingManager.setMap(map);
+    }
+}
+
+// This function hides all markers outside the polygon,
+// and shows only the ones within it. This is so that the
+// user can specify an exact area of search.
+function searchWithinPolygon() {
+    markers.forEach(function (marker) {
+        if (google.maps.geometry.poly.containsLocation(marker.position, polygon)) {
+            marker.setMap(map);
+        } else {
+            marker.setMap(null);
+        }
     });
 }
