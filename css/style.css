@@ -66,3 +66,8 @@ html, body {
 .btn {
     margin: 1rem auto;
 }
+
+#pano {
+    min-height: 200px;
+    min-width: 200px;
+}
