@@ -1,4 +1,4 @@
-# real-state-map
+# maps-playground
 Exploring Google Maps API
 
 ## How to run this:
