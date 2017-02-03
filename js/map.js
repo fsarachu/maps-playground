@@ -519,14 +519,13 @@ function initMap() {
         zoom: 13,
         mapTypeControlOptions: {
             mapTypeIds: ["dark", "purple", "roadmap"]
-        }
+        },
+        mapTypeId: "dark"
     });
 
-    //Associate the styled map with the MapTypeId and set it to display.
+    //Associate the styled map with the MapTypeId.
     map.mapTypes.set("dark", darkStyledMapType);
-    map.setMapTypeId('dark');
     map.mapTypes.set("purple", purpleStyledMapType);
-    map.setMapTypeId('purple');
 
     // Define locations
     var locations = [
